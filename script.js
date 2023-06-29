@@ -24,7 +24,7 @@ function generatePassword() {
   function getPrompts(){
     characterLength = parseInt(prompt("how many characters do you want your password to be? (8 - 128 characters")); //NaN 
  
-    if(isNaN(characterLength) || characterLength < 8 || characterLength > 128 {
+if(isNaN(characterLength) || characterLength < 8 || characterLength > 128 {
     alert("Character length has to be a number, 8 - 128 digits. Please try again.");
     return false; 
   } 
@@ -46,11 +46,20 @@ if (confirm("would you like special case letters in your password?")){
   return true;
   
 }
+  }
+
+  console.log(generatePassword)
+
 
 
 // Add event listener to generate button
 
 generateBtn.addEventListener("click", writePassword);
+
+
+
+
+
 
 
 
