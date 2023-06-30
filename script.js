@@ -1,7 +1,9 @@
 // Get references to the #generate element
 
 var characterLength = 8;
+// --> we are creating a temp dataset
 var choiceArray = [];
+// --> HERE we have DATA || our DATASET(S)
 var specialCharArray = ['!', '@', '#', '$', '%', '^', '&', '*'];
 var lowerCaseArray = ['a', 'b', 'c', 'd', 'e', 'f', 'g', 'h', 'i', 'j', 'k', 'l', 'm', 'n', 'o', 'p', 'q', 'r', 's', 't', 'u', 'v', 'w', 'x', 'y', 'z'];
 var upperCaseArray = ['A', 'B', 'C', 'D', 'E', 'F', 'G', 'H', 'I', 'J', 'K', 'L', 'M', 'N', 'O', 'P', 'Q', 'R', 'S', 'T', 'U', 'V', 'W', 'X', 'Y', 'X'];
@@ -10,47 +12,71 @@ var numberArray = ['1', '2', '3', '4', '5', '6', '7', '8', '9', '0']
 
 // Write password to the #password input
 function writePassword() {
-  var password = generatePassword();
+  var password = passwordGenerator();
   var passwordText = document.getElementById("password");
   passwordText.value = password;
 }
 
-function generatePrompts() { 
+function generatePrompts() {
   //I would generate password based on the prompts//
 
+  // here we are requesting data from the USER
   var length = window.prompt("Enter password length between 8 and 128 characters");
-  // // if (!length) {
-  // //   return;
-  // // }
+  // now we VALIDATE the USER input
+  if (length > 128 || length < 8) {  // --> '10' > 128   --> 10 > 128 --> true || false
+    alert("Password must be greater than 8 and less than 128 character");
+    return;  // anytime we see a RETURN statment we ExIT the function!!
+  }
 
-  var lowerCase = window.confirm("Click to include lowercase letters.");
-  // // if (!lowercase) {
-  // //   password = (!lowercase);
-  // // }
-
+  var lowercase = window.confirm("Click to include lowercase letters.");  // --> return either TRUE or FALSE 
+  if (lowercase) {
+    var lowerData = lowerCaseArray.join('');
+    console.log(lowerData);
+    console.log(typeof lowerData);
+    choiceArray.push(lowerData);
+  }
+  
   var uppercase = window.confirm("Click to include uppercase letters.");
-  // // if (!uppercase) {
-  // //   password = (!uppercase);
-  // // }
+  if (uppercase) {
+    var upperData = upperCaseArray.join('');
+    console.log(upperData);
+    console.log(typeof upperData);
+    choiceArray.push(upperData);
+
+  }
 
   var numeric = window.confirm("Click to include numeric characters?");
-  // // if (!numeric) {
-  // //   password = (!numeric);
-  // // }
+  if (!numeric) {
+   
+  }
 
   var specialchar = window.confirm("Click to include special characters?");
-  // // if (!specialchar) {
-  // //   password = (!specialchar);
-  // // }
+  if (!specialchar) {
+    password = (!specialchar);
+  }
 
- passwordGenerator(length, lowerCase, uppercase, numeric, specialchar)
+  console.log("Dataset: ", choiceArray)
 
+  //passwordGenerator(choiceArray);
+  // return;
 }
 
-function passwordGenerator(pwLength, isLowercase, isUppercase, isNumeric, isSpecialchar) {
-console.log(pwLength, isLowercase, isUppercase, isNumeric, isSpecialchar)
+function passwordGenerator(dataset) {
 
+  var pass = 'bingo';
+  // Then we need to run logic 
+
+  // FROM our gatherd dataset
+  // --> Keep in mind HOW MANY CHARACTERS are going to be in the password(?)
+  // --> HOW can we randomly choose a CHARACTER from our allowed Dataset(?) 
+  // --> REMEMBER to RETURN the password from the function 
+
+
+  //(password)(pwLength, isLowercase, isUppercase, isNumeric, isSpecialchar)
+
+  return pass;
 }
+
 
 // function getPrompts() {
 
@@ -102,14 +128,5 @@ console.log(pwLength, isLowercase, isUppercase, isNumeric, isSpecialchar)
 
 
 
-
-
-
-
-
-
-
-
-
-
+// generatePrompts();
 
