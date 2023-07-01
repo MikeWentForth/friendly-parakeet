@@ -46,24 +46,32 @@ function generatePrompts() {
   }
 
   var numeric = window.confirm("Click to include numeric characters?");
-  if (!numeric) {
+  if (numeric) {
+    var numberData = numberArray.join('');
+    console.log(numberData);
+    console.log(typeof numberData);
+    choiceArray.push(numberData);
    
   }
 
   var specialchar = window.confirm("Click to include special characters?");
-  if (!specialchar) {
-    password = (!specialchar);
+  if (specialchar) {
+    var specialCharData = specialCharArray.join('');
+    console.log(specialCharData);
+    console.log(typeof specialCharData);
+    choiceArray.push(specialCharData);
   }
 
   console.log("Dataset: ", choiceArray)
 
-  //passwordGenerator(choiceArray);
-  // return;
+  passwordGenerator(choiceArray);
+  
 }
 
-function passwordGenerator(dataset) {
+function passwordGenerator(dataset) 
+{
 
-  var pass = 'bingo';
+  var Dataset = 'choiceArray';
   // Then we need to run logic 
 
   // FROM our gatherd dataset
@@ -74,7 +82,7 @@ function passwordGenerator(dataset) {
 
   //(password)(pwLength, isLowercase, isUppercase, isNumeric, isSpecialchar)
 
-  return pass;
+  return choiceArray;
 }
 
 
