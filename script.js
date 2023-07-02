@@ -35,7 +35,7 @@ function generatePrompts() {
     console.log(typeof lowerData);
     choiceArray.push(lowerData);
   }
-  
+
   var uppercase = window.confirm("Click to include uppercase letters.");
   if (uppercase) {
     var upperData = upperCaseArray.join('');
@@ -51,7 +51,7 @@ function generatePrompts() {
     console.log(numberData);
     console.log(typeof numberData);
     choiceArray.push(numberData);
-   
+
   }
 
   var specialchar = window.confirm("Click to include special characters?");
@@ -65,25 +65,44 @@ function generatePrompts() {
   console.log("Dataset: ", choiceArray)
 
   passwordGenerator(choiceArray);
-  
+  return choiceArray;
 }
 
-function passwordGenerator(dataset) 
-{
+function passwordGenerator(dataset) {
 
   var Dataset = 'choiceArray';
+
+  function create_random_string(string_length){
+    var random_string = '';
+    var characters = 'ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz1234567890!@#$%^&*'
+    for(var i, i = 0; i < string_length; i++){
+      random_string += characters.charAt(Math.floor(Math.random() * characters.length))
+    }
+    return random_string
+  }
+
+ 
+
+  
+
+
+    return choiceArray;
+  }
+
+
+
+
+
   // Then we need to run logic 
 
   // FROM our gatherd dataset
   // --> Keep in mind HOW MANY CHARACTERS are going to be in the password(?)
-  // --> HOW can we randomly choose a CHARACTER from our allowed Dataset(?) 
-  // --> REMEMBER to RETURN the password from the function 
+  // --> HOW can we randomly choose a CHARACTER from our allowed Dataset(?)
+  // --> REMEMBER to RETURN the password from the function
 
 
   //(password)(pwLength, isLowercase, isUppercase, isNumeric, isSpecialchar)
 
-  return choiceArray;
-}
 
 
 // function getPrompts() {
