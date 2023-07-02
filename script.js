@@ -72,22 +72,23 @@ function passwordGenerator(dataset) {
 
   var Dataset = 'choiceArray';
 
-  function create_random_string(string_length){
+  create_random_string()
+  function create_random_string(string_length) {
     var random_string = '';
     var characters = 'ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz1234567890!@#$%^&*'
-    for(var i, i = 0; i < string_length; i++){
+    for (var i, i = 0; i < 128; i++) {
       random_string += characters.charAt(Math.floor(Math.random() * characters.length))
     }
-    return random_string
+    console.log(random_string)
   }
 
- 
-
-  
 
 
-    return choiceArray;
-  }
+
+
+
+  return choiceArray;
+}
 
 
 
